@@ -10,10 +10,7 @@ def create_directory(directory_path):
     try:
         # 如果目录不存在，则创建它
         if not os.path.exists(directory_path):
-            os.makedirs(directory_path)
-            print(f'目录已创建: {directory_path}')
-        else:
-            print(f'目录已存在: {directory_path}')
+            os.makedirs(directory_path) 
     except Exception as e:
         print(f'发生错误: {e}')
 
@@ -33,7 +30,7 @@ def copy_file_with_directory_creation(source_path, destination_path):
         
         # 复制文件
         shutil.copy(source_path, destination_path)
-        print(f'文件已从 {source_path} 复制到 {destination_path}')
+
     except FileNotFoundError as fnf_error:
         print(f'错误: {fnf_error}')
     except PermissionError as perm_error:
