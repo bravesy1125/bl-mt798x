@@ -32,6 +32,14 @@ static int mtk_cpu_get_desc(const struct udevice *dev, char *buf, int size)
 	return 0;
 }
 
+static int mtk_cpu_get_info_ys(const struct udevice *dev, struct cpu_info *info)
+{
+	info->cpu_freq = 1300000000;
+	info->features= 0;
+	info->address_width = 64;
+
+	return 0;
+}
 static int mtk_cpu_get_count(const struct udevice *dev)
 {
 	return 1;
@@ -64,6 +72,7 @@ static int mtk_cpu_probe(struct udevice *dev)
 
 static const struct cpu_ops mtk_cpu_ops = {
 	.get_desc	= mtk_cpu_get_desc,
+	.get_info	= mtk_cpu_get_info_ys,
 	.get_count	= mtk_cpu_get_count,
 	.get_vendor	= mtk_cpu_get_vendor,
 };
